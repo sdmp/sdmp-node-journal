@@ -40,7 +40,7 @@ following properties:
 * `resource` - The [resource identifier](http://sdmp.io/docs/resource/#resource-identifier)
 	of the resource being published.
 
-# write to it: `.write(journalEntry, callback)`
+## write to it: `.write(journalEntry, callback)`
 
 Write to the journal by calling `.write` on the instantiated journal. The two properties are:
 
@@ -65,7 +65,7 @@ journal.write({
 })
 ```
 
-# read from it: `.read(journalEntry, callback)`
+## read from it: `.read(journalEntry, callback)`
 
 Read from the journal by calling `.read` on the instantiated journal. The two properties are:
 
@@ -94,12 +94,12 @@ journal.read({
 })
 ```
 
-# write emitter: `.on('write', callback)`
+## write emitter: `.on('write', callback)`
 
 On any call to `.write`, the `write` event is emitted. The `callback` is given the
 journal entry object that was written to the journal.
 
-# read all: `.readAll()`
+## read all: `.readAll()`
 
 Returns the entire journal as an ordered array of journal entry objects.
 
