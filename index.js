@@ -2,7 +2,7 @@ var EventEmitter = require('events').EventEmitter
 var crypto = require('crypto')
 var base64url = require('base64url')
 
-var journalLineRegex = /([a-zA-Z0-9_-]+)(?:@([a-zA-Z0-9_-]+)\/([a-zA-Z0-9_-]+))?$/
+var journalLineRegex = /([a-zA-Z0-9_-]+)@([a-zA-Z0-9_-]+)\/([a-zA-Z0-9_-]+)$/
 
 module.exports = function(input) {
 	var emitter = new EventEmitter()
@@ -39,8 +39,6 @@ module.exports = function(input) {
 		return journal
 	}
 
-	emitter.readStream = function() {/* TODO: I don't know streams very well... */}
-
 	return emitter
 }
 
@@ -61,8 +59,8 @@ function isValidReadableJournalEntryObject(journalEntry) {
 		|| typeof journalEntry !== 'object' 
 		|| (!journalEntry.line && !journalEntry.author && !journalEntry.resource)
 		|| (isUndefinedOrString(journalEntry.line)
-			|| isUndefinedOrString(journalEntry.author)
-			|| isUndefinedOrString(journalEntry.resource))
+			&& isUndefinedOrString(journalEntry.author)
+			&& isUndefinedOrString(journalEntry.resource))
 }
 
 function isValidWritableJournalEntryObject(journalEntry) {
@@ -110,9 +108,5 @@ function hashLineString(string) {
 }
 
 function generateLineStringForEntry(journalEntry) {
-	if (journalEntry.author && journalEntry.resource) {
-		return journalEntry.identifier + '@' + journalEntry.author + '/' + journalEntry.resource
-	} else {
-		return
-	}
+	return journalEntry.identifier + '@' + journalEntry.author + '/' + journalEntry.resource
 }
