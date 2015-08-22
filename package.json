@@ -1,7 +1,7 @@
 {
   "name": "sdmp-node-journal",
-  "version": "0.1.4",
-  "description": "An implementation of the SDMP journal in JavaScript.",
+  "version": "0.1.5",
+  "description": "An implementation of the SDMP Journal in JavaScript.",
   "main": "index.js",
   "scripts": {
     "test": "tape test/*.js",

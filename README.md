@@ -1,6 +1,6 @@
 # sdmp-node-journal
 
-An implementation of the [SDMP journal](https://sdmp.io/docs/journal/) in JavaScript.
+An implementation of the [SDMP journal](http://sdmp.io/docs/journal/) in JavaScript.
 
 This module does **not** verify resources or authors in any way. It simply blindly maintains
 a journal list.
@@ -42,13 +42,13 @@ var journal = NodeJournal(existingJournal)
 All functions and streams digest and produce an object containing some or all of the
 following properties:
 
-* `line` - The string literal of the [journal line](https://sdmp.io/docs/journal/#journal-entries).
+* `line` - The string literal of the [journal line](http://sdmp.io/docs/journal/#journal-entries).
 * `identifier` - The calculated
-	[journal line identifier](https://sdmp.github.io/docs/journal/#journal-line-identifier)
+	[journal line identifier](http://sdmp.io/docs/journal/#journal-line-identifier)
 	for the object being produced.
-* `author` - The [key fingerprint](https://sdmp.github.io/docs/cryptography/#key-fingerprint)
+* `author` - The [key fingerprint](http://sdmp.io/docs/cryptography/#key-fingerprint)
 	of the author publishing the resource.
-* `resource` - The [resource identifier](https://sdmp.github.io/docs/resource/#resource-identifier)
+* `resource` - The [resource identifier](http://sdmp.io/docs/resource/#resource-identifier)
 	of the resource being published.
 
 # write to it: `.write(journalEntry, callback)`
