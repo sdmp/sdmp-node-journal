@@ -17,26 +17,15 @@ Or by copying the code into your project some other more difficult way.
 
 # initialize it
 
-Initialize in the following possible ways.
+Initialize it with a string containing the full journal (according to the SDMP specs,
+this must contain at least the first journal line):
 
 ```js
 var NodeJournal = require('sdmp-node-journal')
-```
-
-With a string containing the full journal (must contain at least the first journal line):
-
-```js
 var existingJournal = 'GlvAreTo0lCS...'
 var journal = NodeJournal(existingJournal)
 ```
 
-Or you can pipe in a stream:
-
-```js
-var fs = require('fs')
-var existingJournal = fs.createReadStream('my-journal.txt')
-var journal = NodeJournal(existingJournal)
-```
 # journal entry object
 
 All functions and streams digest and produce an object containing some or all of the
